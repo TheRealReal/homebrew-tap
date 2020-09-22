@@ -1,4 +1,4 @@
-class Elasticsearch < Formula
+class ElasticsearchAT1 < Formula
   desc "Distributed real-time search & analytics engine for the cloud"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.3.tar.gz"
@@ -85,17 +85,19 @@ class Elasticsearch < Formula
     ln_s etc/"elasticsearch", prefix/"config"
   end
 
-  def caveats; <<-EOS.undent
-    Data:    #{var}/elasticsearch/#{cluster_name}/
-    Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-    Plugins: #{var}/lib/elasticsearch/plugins/
-    Config:  #{etc}/elasticsearch/
+  def caveats
+    <<~EOS
+      Data:    #{var}/elasticsearch/#{cluster_name}/
+      Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
+      Plugins: #{var}/lib/elasticsearch/plugins/
+      Config:  #{etc}/elasticsearch/
     EOS
   end
 
   plist_options :manual => "elasticsearch --config=#{HOMEBREW_PREFIX}/opt/elasticsearch/config/elasticsearch.yml"
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
