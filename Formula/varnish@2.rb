@@ -1,3 +1,6 @@
+# Varnish 2.1.5 has maximum compatibility with Fastly
+# https://developer.fastly.com/reference/vcl/
+
 require 'formula'
 
 class VarnishAT2 < Formula
