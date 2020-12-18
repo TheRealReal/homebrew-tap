@@ -11,7 +11,7 @@ class ElasticsearchAT1 < Formula
     depends_on "maven" => :build
   end
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
